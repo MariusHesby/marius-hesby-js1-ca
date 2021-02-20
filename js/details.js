@@ -24,7 +24,7 @@ async function fetchPokemon() {
       console.log(data[i].id);
 
       //change title of html-page
-      title.innerHTML += data[i].name + " :stats";
+      title.innerHTML = data[i].name + " :stats";
 
       const noInfoOnHp = "No info about the strength of this pokémon";
       const noInfoOnRarity = "No info about rarity of this pokémon";

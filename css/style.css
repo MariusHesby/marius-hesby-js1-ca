@@ -185,6 +185,7 @@ li:nth-child(odd) {
   padding-left: 15px;
   background-color: rgb(208, 208, 208);
   color: #333;
+  border: #fff;
 }
 .contact-info input:focus {
   background-color: #fff;
