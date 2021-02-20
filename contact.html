@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="data:;base64," rel="icon" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/ahq7fut.css" />
+    <script src="https://kit.fontawesome.com/7d46e21d26.js" crossorigin="anonymous"></script>
+    <title>Recipe</title>
+  </head>
+  <body>
+    <div class="contactContainer">
+      <div class="nav">
+        <a href="index.html"><i class="fas fa-home"></i>Home</a>
+        <a href="javascript:window.history.back()" aria-label="Go back"><i class="fas fa-arrow-left"></i>Back</a>
+      </div>
+      <div class="heading">
+        <h1>Contact</h1>
+      </div>
+
+      <div class="contact-info">
+        <div class="message"></div>
+        <form id="contactForm">
+          <div>
+            <label>
+              Full name
+              <input name="fullName" id="fullName" placeholder="full name" />
+            </label>
+            <div class="formError" id="fullNameError">Please enter your full name</div>
+          </div>
+
+          <div>
+            <label>
+              Address (minimum 25 characters)
+              <input name="address" id="address" placeholder="address" />
+            </label>
+            <div class="formError" id="addressError">Address must be at least 25 characters</div>
+          </div>
+
+          <div>
+            <label>
+              Email
+              <input name="email" id="email" placeholder="e-mail" />
+            </label>
+            <div class="formError" id="emailError">Please enter a valid e-mail</div>
+          </div>
+
+          <div>
+            <label>
+              Subject (minimum 10 characters)
+              <input name="subject" id="subject" placeholder="subject" />
+            </label>
+            <div class="formError" id="subjectError">Subject must be at least 10 characters</div>
+          </div>
+
+          <button>Submit</button>
+        </form>
+      </div>
+      <div class="contact"><i class="fas fa-at"></i><a href="contact.html">contact us</a></div>
+    </div>
+
+    <script src="js/contact.js"></script>
+  </body>
+</html>
