@@ -66,11 +66,11 @@ function submitForm(event) {
   event.preventDefault();
   if (checkLength(fullName.value, 0) && checkLength(address.value, 25) && validateEmail(email.value) && checkLength(subject.value, 10)) {
     message.innerHTML = `<p class="sent">Your message has been sent</p>`;
+    // clear all input values
     form.reset();
   } else {
     console.log("dude");
   }
-  // clear all input values
 }
 
 form.addEventListener("submit", submitForm);

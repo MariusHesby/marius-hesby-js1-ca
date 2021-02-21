@@ -58,67 +58,14 @@ async function fetchPokemon() {
         data[i].flavorText = noInfoOnFlavorText;
       }
 
-      // LOOP: data.weaknesses
+      const cardName = data[i].name;
+      const cardHp = data[i].hp;
+      const cardRarity = data[i].rarity;
+      const cardType = data[i].types;
+      const cardAbout = data[i].flavorText;
+      const imgLarge = data[i].images.large;
 
-      // for (let j = 0; j < data[i].weaknesses.length; j++) {
-      //   console.log("4 - [i] and [j]: ", data[i].weaknesses[j].type);
-
-      // if (data[i].weaknesses) {
-      //   for (let j = 0; j < data[i].weaknesses.length; j++) {
-      // data[i].weaknesses[j].type = noInfoOnWeaknesses;
-      // }
-      // }
-
-      // weaknesses
-      // if (data[i].weaknesses[j].type === undefined) {
-      //   data[i].weaknesses[j].type = noInfoOnWeaknesses;
-      // }
-
-      // if (data[i].weaknesses === undefined) {
-      //   data[i].weaknesses[j].type = data[i].weaknesses[j].type;
-      // }
-
-      detailsContainer.innerHTML += `  
-
-                            <div class="nav">
-                                <a href="/"><i class="fas fa-home"></i>Home</a>
-                                <a href="/"><i class="fas fa-arrow-left"></i>Back</a>
-                            </div>
-
-                            <div class="heading">
-                              <h1>${data[i].name}</h1>
-                            </div>
-                            
-                            <div class="stats">
-                              <h2 class="red-text">Stats</h2>
-                                <ul>
-                                    <li>HP:</li>
-                                    <li>${data[i].hp}</li>
-                             
-                                    <li>Rarity:</li>
-                                    <li>${data[i].rarity}</li>
-                             
-                                    <li>Type:</li>
-                                    <li>${data[i].types}</li>
-                            
-                                    <li>About:</li>
-                                    <li>${data[i].flavorText}</li>
-
-                                </ul>
-                            </div>
-                            
-                            <div class="card-img">
-                              <img class="image-box"
-                              src="${data[i].images.large}"
-                              alt="${data[i].name}" />
-                            </div>
-                            
-                            <div class="contact">
-                                <i class="fas fa-at"></i>
-                                    <a href="contact.html">contact us</a>
-                            </div>`;
-      //   }
-      // }
+      detailsContainer.innerHTML += cardDetails(cardName, cardHp, cardRarity, cardType, cardAbout, imgLarge);
     }
   } catch (error) {
     detailsContainer.innerHTML = "";
@@ -128,6 +75,3 @@ async function fetchPokemon() {
 }
 
 fetchPokemon();
-
-// <li>Weaknesses:</li>
-// <li>${data[i].weaknesses[j].type}</li>

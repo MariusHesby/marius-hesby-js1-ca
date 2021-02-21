@@ -13,7 +13,7 @@ async function fetchPokemons() {
     resultsContainer.innerHTML = "";
 
     for (let i = 0; i < data.length; i++) {
-      if (i === 10) {
+      if (i === 30) {
         break;
       }
 
