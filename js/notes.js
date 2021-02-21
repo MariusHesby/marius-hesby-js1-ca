@@ -13,7 +13,6 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
-// CL //
 console.log("1 - Id ", id);
 
 const url = "https://api.pokemontcg.io/v2/cards?q=id:" + id;
@@ -25,7 +24,6 @@ async function fetchPokemon() {
     const details = await response.json();
     const data = details.data;
 
-    // CL //
     console.log("2 - Array: ", data);
 
     detailsContainer.innerHTML = "";
@@ -34,51 +32,48 @@ async function fetchPokemon() {
     for (let i = 0; i < data.length; i++) {
       console.log("3 - Weaknesses: ", data[i].weaknesses);
 
-      //UPDATE details page title
+      //UPDATE: title of html-page
       title.innerHTML = data[i].name + " :stats";
 
-      //name
-      if (data[i].name === undefined) {
-        data[i].name = noInfoOnName;
-      }
-      //hp
-      if (data[i].hp === undefined) {
-        data[i].hp = noInfoOnHp;
-      }
-      //rarity
-      if (data[i].rarity === undefined) {
-        data[i].rarity = noInfoOnRarity;
-      }
-      //types
-      if (data[i].types === undefined) {
-        data[i].types = noInfoOnTypes;
-      }
-      //about
-      if (data[i].flavorText === undefined) {
-        data[i].flavorText = noInfoOnFlavorText;
+      if (data[i].weaknesses === undefined) {
+        data[i].weaknesses = noInfoOnWeaknesses;
       }
 
       // LOOP: data.weaknesses
+      for (let j = 0; j < data[i].weaknesses.length; j++) {
+        console.log("4 - [i] and [j]: ", data[i].weaknesses[j].type);
 
-      // for (let j = 0; j < data[i].weaknesses.length; j++) {
-      //   console.log("4 - [i] and [j]: ", data[i].weaknesses[j].type);
+        //name
+        if (data[i].name === undefined) {
+          data[i].name = noInfoOnName;
+        }
+        //hp
+        if (data[i].hp === undefined) {
+          data[i].hp = noInfoOnHp;
+        }
+        //rarity
+        if (data[i].rarity === undefined) {
+          data[i].rarity = noInfoOnRarity;
+        }
+        //types
+        if (data[i].types === undefined) {
+          data[i].types = noInfoOnTypes;
+        }
+        //about
+        if (data[i].flavorText === undefined) {
+          data[i].flavorText = noInfoOnFlavorText;
+        }
 
-      // if (data[i].weaknesses) {
-      //   for (let j = 0; j < data[i].weaknesses.length; j++) {
-      // data[i].weaknesses[j].type = noInfoOnWeaknesses;
-      // }
-      // }
+        //weaknesses
+        if (data[i].weaknesses[j].type === undefined) {
+          data[i].weaknesses[j].type = noInfoOnWeaknesses;
+        }
 
-      // weaknesses
-      // if (data[i].weaknesses[j].type === undefined) {
-      //   data[i].weaknesses[j].type = noInfoOnWeaknesses;
-      // }
+        // if (data[i].weaknesses === undefined) {
+        //   data[i].weaknesses[j].type = data[i].weaknesses[j].type;
+        // }
 
-      // if (data[i].weaknesses === undefined) {
-      //   data[i].weaknesses[j].type = data[i].weaknesses[j].type;
-      // }
-
-      detailsContainer.innerHTML += `  
+        detailsContainer.innerHTML += `  
 
                             <div class="nav">
                                 <a href="/"><i class="fas fa-home"></i>Home</a>
@@ -104,6 +99,8 @@ async function fetchPokemon() {
                                     <li>About:</li>
                                     <li>${data[i].flavorText}</li>
 
+                                    <li>Weaknesses:</li>
+                                    <li>${data[i].weaknesses[j].type}</li>
                                 </ul>
                             </div>
                             
@@ -117,8 +114,7 @@ async function fetchPokemon() {
                                 <i class="fas fa-at"></i>
                                     <a href="contact.html">contact us</a>
                             </div>`;
-      //   }
-      // }
+      }
     }
   } catch (error) {
     detailsContainer.innerHTML = "";
@@ -128,6 +124,3 @@ async function fetchPokemon() {
 }
 
 fetchPokemon();
-
-// <li>Weaknesses:</li>
-// <li>${data[i].weaknesses[j].type}</li>
