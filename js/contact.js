@@ -15,7 +15,7 @@ function validateForm(event) {
   event.preventDefault();
 
   // Check full name
-  if (checkLength(fullName.value, 0)) {
+  if (checkLength(fullName.value, 2)) {
     fullNameError.style.display = "none";
   } else {
     fullNameError.style.display = "block";
